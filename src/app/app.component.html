@@ -1,0 +1,193 @@
+<mat-tab-group>
+  <mat-tab label="Hear the details!">
+    <img src="assets/amazingCO.png" class="amazingImage" alt="">
+    <mat-divider></mat-divider>
+    <mat-card>
+      <mat-card-content class="amazingHeader">
+        Background
+      </mat-card-content>
+    </mat-card>
+    <mat-divider></mat-divider>
+    <mat-card>
+      <mat-card-content class="amazingText">
+        AmazingCo is a managed marketplace for experiences. We help our customers have unique and amazing experiences
+        for
+        everyday activities and special occasions. We operate across the United States, UK & Australia.
+        We need to build a technology platform to enable our vision. Being a managed marketplace means our platform
+        needs
+        to not only help users discover and book experiences but also coordinate with friends and empower the supply
+        side
+        of our marketplace to deliver the experience with world-class results.
+      </mat-card-content>
+    </mat-card>
+    <mat-divider></mat-divider>
+    <mat-card>
+      <mat-card-content class="amazingHeader">
+        Our <b>Amazing</b> discounts!
+      </mat-card-content>
+    </mat-card>
+    <mat-divider></mat-divider>
+    <mat-card>
+      <mat-card-content class="amazingText">
+        We have Tons of amazing discounts for you, depending on which packages you buy and how many of them you get. You
+        will <b>ALWAYS</b> have a discount going for you!
+      </mat-card-content>
+    </mat-card>
+    <mat-divider></mat-divider>
+    <mat-card>
+      <mat-card-content class="amazingText">
+        <mat-icon>group</mat-icon>
+        <b>Discount on our team building package!</b> The normal price is 800$ per package, but if you buy 2, you will
+        do
+        it for $1500, having a total of <b>100$ of discount!</b>
+      </mat-card-content>
+    </mat-card>
+    <mat-divider></mat-divider>
+    <mat-card>
+      <mat-card-content class="amazingText">
+        <mat-icon> local_bar</mat-icon>
+        <b>Discount on Wine Tours and Picnics!</b> The normal price for a Wine Tour is 440$, and the normal price for a
+        picnic is 110$. But if you buy 4 packages from AmazingCo, you only have to pay for 3! <b>saving a whole package
+          on
+          the process!</b> (440$ for Wine tours and 110$ for picnic in total savings)
+      </mat-card-content>
+    </mat-card>
+    <mat-divider></mat-divider>
+    <mat-card>
+      <mat-card-content class="amazingText">
+        <mat-icon>fastfood</mat-icon>
+        <b>Discount on Picnics!</b> The normal price for a picnic is 110$. But here in AmazingCo that is just not
+        enough.
+        That's right, if you buy 2 picnic Packages, <b>you get 1 free!</b> Saving a total of <b>110$!</b>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-divider></mat-divider>
+    <mat-card>
+      <mat-card-content class="amazingText">
+        <mat-icon>priority_high</mat-icon>
+        <b>Discount on ALL our packages</b> As if it was not enough already, we have a special discount going on for
+        <b>ALL</b> our packages. The discount is simple. buy 5 packages of any kind and the 5th one has a <b>20%
+          discount!</b>
+      </mat-card-content>
+    </mat-card>
+    <mat-divider></mat-divider>
+    <mat-card>
+      <mat-card-content class="amazingText">
+        <mat-icon>sync</mat-icon>
+        <b>Accumulative discounts!</b> All our discounts are accumulative and stack up. For example, if you buy 4
+        packages
+        of Team building, you will get <b>two times the team building discount!</b> (200$) but that is not all! Buy 5
+        packages of team building, and you will also benefit from getting our special <b>20% discount</b> for the 5th
+        package! (160$)
+      </mat-card-content>
+    </mat-card>
+    <mat-divider></mat-divider>
+  </mat-tab>
+
+
+  <mat-tab label="Buy Packages">
+    <h1 class="amazingHeader alignCenter m-20">
+      Package Price Calculator!
+    </h1>
+    <mat-divider></mat-divider>
+    <p class="amazingText m-20">
+      Calculate the total price for all the packages you buy! You'll get the total price and total discount at the
+      bottom of the page. just enter the number of packages you want to buy and the program will automatically calculate
+      how much you will pay. As simple as that!
+    </p>
+    <div class="spacer5"></div>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Kids Party Packages</mat-label>
+      <input matInput placeholder="Introduce number of Packages" [(ngModel)]="kidsPackages"
+        (ngModelChange)="buyPackages()">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Wine Tour Packages</mat-label>
+      <input matInput placeholder="Introduce number of Packages" [(ngModel)]="winePackages"
+        (ngModelChange)="buyPackages()">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Team building Packages</mat-label>
+      <input matInput placeholder="Introduce number of Packages" [(ngModel)]="teamPackages"
+        (ngModelChange)="buyPackages()">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Picnic Packages</mat-label>
+      <input matInput placeholder="Introduce number of Packages" [(ngModel)]="picnicPackages"
+        (ngModelChange)="buyPackages()">
+    </mat-form-field>
+
+    <div class="spacer5"></div>
+
+    <h1 class="amazingHeader alignCenter">
+      Price Details
+    </h1>
+    <mat-divider></mat-divider>
+    <div class="spacer5"></div>
+    <mat-grid-list cols="2" rowHeight="450px">
+      <mat-grid-tile>
+        <div>
+          <mat-list role="list">
+            <mat-list-item *ngIf="kidsPackages>0" role="listitem">Kid Packages Total:
+              {{kidsPackages*kidsPackagesPrice}}$
+            </mat-list-item>
+            <mat-list-item *ngIf="winePackages>0" role="listitem">Wine Packages Total:
+              {{winePackages*winePackagesPrice}}$
+            </mat-list-item>
+            <mat-list-item *ngIf="teamPackages>0" role="listitem">Team Packages Total:
+              {{teamPackages*teamPackagesPrice}}$
+            </mat-list-item>
+            <mat-list-item *ngIf="picnicPackages>0" role="listitem">Picnic Packages Total:
+              {{picnicPackages*picnicPackagesPrice}}$
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div>
+          <mat-list role="list">
+            <mat-list-item *ngIf="teamDiscounts>0" role="listitem">Buy 2 team packages for 1500$ total discount:
+              {{teamDiscounts*teamDiscountsDiscount}}$
+            </mat-list-item>
+            <mat-list-item *ngIf="picnicDiscounts>0" role="listitem">Buy 2 picnic packages get 1 free total discount:
+              {{picnicDiscounts*picnicDiscountsDiscount}}$
+            </mat-list-item>
+            <mat-list-item *ngIf="wine4for3Discounts>0" role="listitem">Buy 4 wine packages pay for 3 total discount:
+              {{wine4for3Discounts*wine4for3DiscountsDiscount}}$
+            </mat-list-item>
+            <mat-list-item *ngIf="picnic4for3Discounts>0" role="listitem">Buy 4 picnic packages pay for 3 total
+              discount:
+              {{picnic4for3Discounts*picnic4for3DiscountsDiscount}}$
+            </mat-list-item>
+            <mat-list-item *ngIf="anyDiscountsKids>0" role="listitem">Buy 5 Kid Party Packages, get a discount of 20% on
+              the 5th one total discount:
+              {{anyDiscountsKids*anyDiscountsKidsDiscount}}$
+            </mat-list-item>
+            <mat-list-item *ngIf="anyDiscountsTeam>0" role="listitem">Buy 5 Team Building Packages, get a discount of
+              20% on the 5th one total discount:
+              {{anyDiscountsTeam*anyDiscountsTeamDiscount}}$
+            </mat-list-item>
+            <mat-list-item *ngIf="anyDiscountsWine>0" role="listitem">Buy 5 Wine Tour Packages, get a discount of 20% on
+              the 5th one total discount:
+              {{anyDiscountsWine*anyDiscountsWineDiscount}}$
+            </mat-list-item>
+            <mat-list-item *ngIf="anyDiscountsPicnic>0" role="listitem">Buy 5 Picnic Packages, get a discount of 20% on
+              the 5th one total discount:
+              {{anyDiscountsPicnic*anyDiscountsPicnicDiscount}}$
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <p class="amazingText alignCenter m-20"><b>Total:
+        {{picnicPackages*picnicPackagesPrice+teamPackages*teamPackagesPrice+winePackages*winePackagesPrice+kidsPackages*kidsPackagesPrice}}$
+        / Discount Total: {{discountTotal}}$ / Total after discounts: {{total}}$ </b></p>
+  </mat-tab>
+
+
+  <!--
+  <mat-tab label="Detailed description of Discounts"> </mat-tab>
+  -->
+</mat-tab-group>
